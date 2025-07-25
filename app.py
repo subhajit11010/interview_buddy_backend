@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 port = int(os.environ.get("PORT", 5000))
 API_KEY = ""
-CORS(app, resources={r"/*": {"origins": "http://127.0.0.1:5500"}})
+CORS(app, origins=["https://interviewbuddy-six.vercel.app"])
 client = None
 current_model = None
 lang = None
