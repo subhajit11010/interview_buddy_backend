@@ -8,6 +8,7 @@ app = Flask(__name__)
 port = int(os.environ.get("PORT", 5000))
 API_KEY = ""
 CORS(app, origins=["https://interviewbuddy-six.vercel.app"])
+# CORS(app, origins=["*"])  # Allow all origins for development purposes
 client = None
 current_model = None
 lang = None
@@ -56,7 +57,11 @@ def time_of_day(hour):
         return "Afternoon"
     else:
         return "Evening"
-    
+
+@app.route('/tic')
+def tic():
+    return "tac", 200
+
 @app.route('/chat', methods=["POST"])
 def reply():
     global previous_q, previous_res, interview_start
